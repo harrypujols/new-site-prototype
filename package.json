@@ -1,0 +1,23 @@
+{
+  "name": "new-site-prototype",
+  "version": "1.0.0",
+  "description": "plain html site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harrypujols/new-site-prototype.git"
+  },
+  "keywords": [
+    "site",
+    "harrypujols"
+  ],
+  "author": "Harry Pujols",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harrypujols/new-site-prototype/issues"
+  },
+  "homepage": "https://github.com/harrypujols/new-site-prototype#readme"
+}
