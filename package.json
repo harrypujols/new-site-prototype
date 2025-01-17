@@ -1,23 +1,44 @@
 {
-  "name": "new-site-prototype",
-  "version": "1.0.0",
-  "description": "plain html site",
+  "name": "site",
+  "version": "0.0.1",
+  "description": "A project by Harry Pujols",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm-run-all --parallel server html css js image watch:*",
+    "css": "sass --style=expanded ./dev/sass/styles.scss ./docs/css/styles.css",
+    "js": "webpack --config webpack.config.js",
+    "html": "cp ./dev/html/index.html ./docs/",
+    "image": "cp ./dev/img/** ./docs/img/",
+    "server": "browser-sync start --server ./docs --files ./docs",
+    "watch:css": "onchange './dev/sass/**/**' -- npm run css",
+    "watch:html": "onchange './dev/html/**/**' -- npm run html",
+    "watch:js": "onchange './dev/js/**/**' -- npm run js",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/harrypujols/new-site-prototype.git"
+    "url": "git+https://github.com/harrypujols/frameworkless.git"
   },
   "keywords": [
-    "site",
-    "harrypujols"
+    "js",
+    "javascript",
+    "html",
+    "css"
   ],
   "author": "Harry Pujols",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/harrypujols/new-site-prototype/issues"
+  "homepage": "https://harrypujols.com",
+  "devDependencies": {
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "babel-loader": "^9.1.3",
+    "browser-sync": "^3.0.3",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "sass": "^1.66.1",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   },
-  "homepage": "https://github.com/harrypujols/new-site-prototype#readme"
+  "engine": "node 17.1.0"
 }
