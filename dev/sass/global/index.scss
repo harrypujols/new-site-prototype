@@ -8,11 +8,12 @@
   background-color: var(--background-color, var(--color-deep));
 
   &:before {
-    display: none;
-    @each breakpoints.$breakpoint in map-keys(breakpoints.$breakpoints) {
-      @include breakpoint(breakpoints.$breakpoint) {
-        content: breakpoints.$breakpoint;
-      }
-    }
+    // display: none;
+    // @each $breakpoint in map-keys(breakpoints.$breakpoints) {
+    //   @media screen and (min-width: $breakpoint) {
+    //     content: $breakpoint;
+    //   }
+    // }
+    content: foo;
   }
 }
