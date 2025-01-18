@@ -1,15 +1,20 @@
 $breakpoints: (
-  "phone-portrait": 321px,
-  "phone-landscape": 481px,
-  "tablet-portrait": 601px,
-  "tablet-landscape": 769px,
-  "desktop": 961px,
-  "desktop-large": 1280px,
+  "phone-portrait": 20.0625rem,
+  // 321px / 16
+  "phone-landscape": 30.0625rem,
+  // 481px / 16
+  "tablet-portrait": 37.5625rem,
+  // 601px / 16
+  "tablet-landscape": 48.0625rem,
+  // 769px / 16
+  "desktop": 60.0625rem,
+  // 961px / 16
+  "desktop-large": 80rem // 1280px / 16,
 );
 
 $breakpoint-directions: (
   "min": "min-width",
-  "max": "max-width"
+  "max": "max-width",
 );
 
 $default-breakpoint: root;
