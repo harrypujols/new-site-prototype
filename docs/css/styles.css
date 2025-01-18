@@ -1,6 +1,33 @@
 .body {
   font-family: sans-serif;
 }
-.body::before {
-  content: "foo";
+@media screen and (min-width: 321px) {
+  .body::before {
+    content: "phone-portrait";
+  }
+}
+@media screen and (min-width: 481px) {
+  .body::before {
+    content: "phone-landscape";
+  }
+}
+@media screen and (min-width: 601px) {
+  .body::before {
+    content: "tablet-portrait";
+  }
+}
+@media screen and (min-width: 769px) {
+  .body::before {
+    content: "tablet-landscape";
+  }
+}
+@media screen and (min-width: 961px) {
+  .body::before {
+    content: "desktop";
+  }
+}
+@media screen and (min-width: 1280px) {
+  .body::before {
+    content: "desktop-large";
+  }
 }

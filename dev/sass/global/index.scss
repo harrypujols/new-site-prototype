@@ -1,15 +1,14 @@
-@use "../settings/breakpoints" as breakpoints;
+@use "../settings/breakpoints" as bp;
 
 .body {
   font-family: sans-serif;
 
   &::before {
     // display: none;
-    // @each $breakpoint in map-keys(breakpoints.$breakpoints) {
-    //   @media screen and (min-width: $breakpoint) {
-    //     content: $breakpoint;
-    //   }
-    // }
-    content: "foo";
+    @each $name, $value in bp.$breakpoints {
+      @media screen and (min-width: $value) {
+        content: $name;
+      }
+    }
   }
 }
