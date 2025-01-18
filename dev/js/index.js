@@ -10,12 +10,12 @@ import run from "./app/run";
 
 ((window, APP) => {
   APP.components = {
-    components,
     breakpoint,
     render,
   };
 
   APP.start = {
+    components,
     run,
   };
 

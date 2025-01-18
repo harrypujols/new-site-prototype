@@ -79,7 +79,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((APP) => {
   document.addEventListener("DOMContentLoaded", () => {
-    APP.components.components(APP);
+    APP.start.components(APP);
+    console.log("App started");
   });
 });
 
@@ -162,12 +163,12 @@ const FRAMEWORK = {};
 
 ((window, APP) => {
   APP.components = {
-    components: _components_components__WEBPACK_IMPORTED_MODULE_1__["default"],
     breakpoint: _components_breakpoint__WEBPACK_IMPORTED_MODULE_2__["default"],
     render: _components_render__WEBPACK_IMPORTED_MODULE_3__["default"],
   };
 
   APP.start = {
+    components: _components_components__WEBPACK_IMPORTED_MODULE_1__["default"],
     run: _app_run__WEBPACK_IMPORTED_MODULE_4__["default"],
   };
 

@@ -1,5 +1,6 @@
 export default (APP) => {
   document.addEventListener("DOMContentLoaded", () => {
-    APP.components.components(APP);
+    APP.start.components(APP);
+    console.log("App started");
   });
 };
