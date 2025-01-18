@@ -2,5 +2,5 @@
   font-family: sans-serif;
 }
 .body::before {
-  content: foo;
+  content: "foo";
 }
