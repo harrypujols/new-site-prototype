@@ -1,6 +1,9 @@
 .body {
   font-family: sans-serif;
 }
+.body::before {
+  display: none;
+}
 @media screen and (min-width: 20.0625rem) {
   .body::before {
     content: "phone-portrait";

@@ -4,7 +4,7 @@
   font-family: sans-serif;
 
   &::before {
-    // display: none;
+    display: none;
     @each $name, $value in bp.$breakpoints {
       @media screen and (min-width: $value) {
         content: $name;
