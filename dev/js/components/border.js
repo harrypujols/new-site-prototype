@@ -13,7 +13,6 @@ export default class {
     this.resize(() => {
       this.width = this.element.offsetWidth;
       this.height = this.element.offsetHeight;
-      console.log(this.width, this.height);
       this.updateCharacter();
     }, 66);
   }
