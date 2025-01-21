@@ -4,10 +4,12 @@ export default class {
     this.width = this.element.offsetWidth;
     this.height = this.element.offsetHeight;
     this.resize = APP.start.resize;
-    this.character = "x";
+    this.character = this.element.getAttribute("data-character") || "*";
   }
 
   init() {
+    this.updateCharacter();
+
     this.resize(() => {
       this.width = this.element.offsetWidth;
       this.height = this.element.offsetHeight;
