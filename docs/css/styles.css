@@ -1,5 +1,7 @@
 .body {
   font-family: sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 .body::before {
   display: none;
@@ -38,11 +40,13 @@
 pre,
 code,
 [data-js=border] {
-  font-family: monospace;
+  font-family: "VT323", serif;
+  line-height: 0.75rem;
 }
 
 [data-js=border] {
   border: 0;
+  font-size: 1.565rem;
 }
 
 h1,
