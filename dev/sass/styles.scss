@@ -1,2 +1,11 @@
-@use "global/index";
-// @use "components/index";
+@use "global/index" as global;
+@use "components/index" as components;
+
+@layer vendor {
+  // Include vendor styles here
+}
+
+@layer core {
+  @import "global/index";
+  @import "components/index";
+}
