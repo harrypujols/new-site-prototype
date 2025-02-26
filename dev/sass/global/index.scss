@@ -1,7 +1,7 @@
 @use "../settings/breakpoints" as bp;
 
 .body {
-  font-family: monospace;
+  font-family: sans-serif;
 
   &::before {
     display: none;
@@ -11,4 +11,19 @@
       }
     }
   }
+}
+
+pre,
+code,
+[data-js="border"] {
+  font-family: monospace;
+}
+
+[data-js="border"] {
+  border: 0;
+}
+
+h1,
+h2 {
+  text-wrap: balance;
 }
