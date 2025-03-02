@@ -1,7 +1,9 @@
 @use "../settings/breakpoints" as bp;
 
 .body {
-  font-family: sans-serif;
+  font-family: var(--font-family-mono);
+  color: var(--foreground-color);
+  background-color: var(--background-color);
   font-size: 1rem;
   line-height: 1.5;
 
@@ -18,7 +20,6 @@
 pre,
 code,
 [data-js="border"] {
-  font-family: "VT323", serif;
   line-height: 0.75rem;
 }
 
