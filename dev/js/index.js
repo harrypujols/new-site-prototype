@@ -10,6 +10,7 @@ import components from "./app/components";
 import resize from "./app/resize";
 import run from "./app/run";
 import typewriter from "./components/typewriter";
+import save from "./app/save";
 
 ((window, APP) => {
   APP.components = {
@@ -23,6 +24,7 @@ import typewriter from "./components/typewriter";
     components,
     resize,
     run,
+    save,
   };
 
   APP.data = data;

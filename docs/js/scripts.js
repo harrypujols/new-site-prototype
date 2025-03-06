@@ -5,7 +5,7 @@
 /* 1 */
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"site":{"name":"harrypujols.com","version":"1.0.0"},"settings":{"mode":"system","language":"en","theme":"default"}}');
+module.exports = /*#__PURE__*/JSON.parse('{"site":{"name":"harrypujols.com"},"settings":{"version":"1.0.0","mode":"system","language":"en","theme":"default"}}');
 
 /***/ }),
 /* 2 */
@@ -190,6 +190,31 @@ __webpack_require__.r(__webpack_exports__);
 });
 
 
+/***/ }),
+/* 9 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((APP) => {
+  const load = (key) => {
+    const data = localStorage.getItem(key);
+    return data ? JSON.parse(data) : null;
+  };
+
+  const save = (key, json) => {
+    localStorage.setItem(key, JSON.stringify(json));
+  };
+
+  return {
+    load,
+    save,
+  };
+});
+
+
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -259,7 +284,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_resize__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(6);
 /* harmony import */ var _app_run__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7);
 /* harmony import */ var _components_typewriter__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(8);
+/* harmony import */ var _app_save__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(9);
 const FRAMEWORK = {};
+
 
 
 
@@ -284,6 +311,7 @@ const FRAMEWORK = {};
     components: _app_components__WEBPACK_IMPORTED_MODULE_4__["default"],
     resize: _app_resize__WEBPACK_IMPORTED_MODULE_5__["default"],
     run: _app_run__WEBPACK_IMPORTED_MODULE_6__["default"],
+    save: _app_save__WEBPACK_IMPORTED_MODULE_8__["default"],
   };
 
   APP.data = _data_data__WEBPACK_IMPORTED_MODULE_0__;

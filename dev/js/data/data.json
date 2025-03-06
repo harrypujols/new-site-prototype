@@ -1,10 +1,10 @@
 {
 	"site": {
-		"name": "harrypujols.com",
-		"version": "1.0.0"
+		"name": "harrypujols.com"
 	},
 
 	"settings": {
+		"version": "1.0.0",
 		"mode": "system",
 		"language": "en",
 		"theme": "default"
