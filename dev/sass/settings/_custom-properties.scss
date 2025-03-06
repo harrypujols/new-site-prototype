@@ -5,6 +5,7 @@
     --screen-#{$name}: #{$value};
   }
 
+  --font-family-sans: "Poppins", sans-serif;
   --font-family-mono: "VT323", monospace;
   --foreground-color: var(--foreground, #080808);
   --background-color: var(--background, #f8f8f8);

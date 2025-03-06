@@ -1,5 +1,20 @@
+:root {
+  --screen-phone-portrait: 20.0625rem;
+  --screen-phone-landscape: 30.0625rem;
+  --screen-tablet-portrait: 37.5625rem;
+  --screen-tablet-landscape: 48.0625rem;
+  --screen-desktop: 60.0625rem;
+  --screen-desktop-large: 80rem;
+  --font-family-sans: "Poppins", sans-serif;
+  --font-family-mono: "VT323", monospace;
+  --foreground-color: var(--foreground, #080808);
+  --background-color: var(--background, #f8f8f8);
+}
+
 .body {
-  font-family: sans-serif;
+  font-family: var(--font-family-sans);
+  color: var(--foreground-color);
+  background-color: var(--background-color);
   font-size: 1rem;
   line-height: 1.5;
 }
@@ -40,7 +55,7 @@
 pre,
 code,
 [data-js=border] {
-  font-family: "VT323", serif;
+  font-family: var(--font-family-mono);
   line-height: 0.75rem;
 }
 
@@ -53,6 +68,13 @@ h1,
 h2 {
   text-transform: capitalize;
   text-wrap: balance;
+}
+
+.headline {
+  font-size: 6rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin-top: 0;
 }
 
 @layer vendor, core;

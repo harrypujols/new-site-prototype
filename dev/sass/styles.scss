@@ -1,3 +1,4 @@
+@use "settings/custom-properties" as custom-properties;
 @use "global/index" as global;
 @use "components/index" as components;
 @layer vendor, core;
