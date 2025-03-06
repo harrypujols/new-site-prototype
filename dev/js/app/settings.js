@@ -1,4 +1,4 @@
-export default class {
+export default class Settings {
   constructor(APP) {
     this.APP = APP;
     this.saveFunctions = this.APP.start.save(this.APP);
@@ -9,29 +9,28 @@ export default class {
     this.settings = this.load(this.settingsKey);
   }
 
-  this.saveSettings() {
+  saveSettings() {
     this.save(this.settingsKey, this.settings);
   }
 
-  this.loadSettings() {
+  loadSettings() {
     this.settings = this.load(this.settingsKey);
     if (this.settings) {
       this.data.settings = this.settings;
     } else {
+      this.settings = this.data.settings;
       this.saveSettings();
     }
 
-    return this.settings
+    return this.settings;
   }
 
-  this.updateSettings(settings) {
+  updateSettings(settings) {
     this.settings = settings;
     this.saveSettings();
   }
-  
-  this.init() {
-    this.loadSettings();
 
-    this.APP.addEvent
+  init() {
+    this.loadSettings();
   }
 }
