@@ -1,3 +1,13 @@
+@property --color-dark {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #080808;
+}
+@property --color-light {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #f8f8f8;
+}
 :root {
   --screen-phone-portrait: 20.0625rem;
   --screen-phone-landscape: 30.0625rem;
@@ -7,8 +17,6 @@
   --screen-desktop-large: 80rem;
   --font-family-sans: "Poppins", sans-serif;
   --font-family-mono: "VT323", monospace;
-  --foreground-color: var(--foreground, #080808);
-  --background-color: var(--background, #f8f8f8);
 }
 
 .body {

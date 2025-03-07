@@ -1,5 +1,17 @@
 @use "breakpoints" as breakpoints;
 
+@property --color-dark {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #080808;
+}
+
+@property --color-light {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #f8f8f8;
+}
+
 :root {
   @each $name, $value in breakpoints.$breakpoints {
     --screen-#{$name}: #{$value};
@@ -7,6 +19,4 @@
 
   --font-family-sans: "Poppins", sans-serif;
   --font-family-mono: "VT323", monospace;
-  --foreground-color: var(--foreground, #080808);
-  --background-color: var(--background, #f8f8f8);
 }
