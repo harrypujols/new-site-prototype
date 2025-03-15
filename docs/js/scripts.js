@@ -15,6 +15,80 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((APP) => {
+  document.addEventListener("DOMContentLoaded", () => {
+    APP.start.components(APP);
+    const settingsInstance = new APP.start.settings(APP);
+    settingsInstance.init();
+  });
+});
+
+
+/***/ }),
+/* 3 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (class {
+  constructor(APP) {
+    this.data = APP.data;
+  }
+
+  retrieve() {
+    if (localStorage.getItem("settings")) {
+      let preferences = JSON.parse(localStorage.getItem("settings"));
+      console.log(preferences);
+      return preferences;
+    } else {
+      this.store(this.data.settings);
+      console.log("No settings found. Using default settings.");
+      return this.data.settings;
+    }
+  }
+
+  store(data) {
+    localStorage.setItem("settings", JSON.stringify(data));
+  }
+
+  init() {
+    this.retrieve();
+  }
+});
+
+
+/***/ }),
+/* 4 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (( APP ) => {
+  let components = document.querySelectorAll('[data-js]')
+  components.forEach(( component ) => {
+    Object.entries( APP.components ).forEach(( entry ) => {
+      let [key, value] = entry
+      if ( key == component.dataset.js ) {
+        let directive = new value( component, APP )
+        directive.init()
+      }
+    })
+  })
+});
+
+
+/***/ }),
+/* 5 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (() => {
   return   window.getComputedStyle( document.querySelector('body'), ':before')
           .getPropertyValue('content').replace(/\"/g, '')
@@ -22,7 +96,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 3 */
+/* 6 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -48,7 +122,7 @@ __webpack_require__.r(__webpack_exports__);
 });
 
 /***/ }),
-/* 4 */
+/* 7 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -60,7 +134,7 @@ __webpack_require__.r(__webpack_exports__);
     this.element = element;
     this.width = this.element.offsetWidth;
     this.height = this.element.offsetHeight;
-    this.resize = APP.start.resize;
+    this.resize = APP.methods.resize;
     this.character = this.element.getAttribute("data-character") || "*";
   }
 
@@ -94,29 +168,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 5 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (( APP ) => {
-  let components = document.querySelectorAll('[data-js]')
-  components.forEach(( component ) => {
-    Object.entries( APP.components ).forEach(( entry ) => {
-      let [key, value] = entry
-      if ( key == component.dataset.js ) {
-        let directive = new value( component, APP )
-        directive.init()
-      }
-    })
-  })
-});
-
-
-/***/ }),
-/* 6 */
+/* 8 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -141,23 +193,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 7 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((APP) => {
-  document.addEventListener("DOMContentLoaded", () => {
-    APP.start.components(APP);
-    console.log("App started");
-  });
-});
-
-
-/***/ }),
-/* 8 */
+/* 9 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -172,11 +208,6 @@ __webpack_require__.r(__webpack_exports__);
     this.typing = false;
   }
 
-  init() {
-    this.element.textContent = "";
-    this.type();
-  }
-
   type() {
     if (this.index < this.text.length) {
       this.typing = true;
@@ -187,31 +218,11 @@ __webpack_require__.r(__webpack_exports__);
       this.typing = false;
     }
   }
-});
 
-
-/***/ }),
-/* 9 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((APP) => {
-  const load = (key) => {
-    const data = localStorage.getItem(key);
-    return data ? JSON.parse(data) : null;
-  };
-
-  const save = (key, json) => {
-    localStorage.setItem(key, JSON.stringify(json));
-  };
-
-  return {
-    load,
-    save,
-  };
+  init() {
+    this.element.textContent = "";
+    this.type();
+  }
 });
 
 
@@ -277,15 +288,16 @@ var __webpack_exports__ = {};
 (() => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _data_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _components_breakpoint__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var _components_render__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
-/* harmony import */ var _components_border__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
-/* harmony import */ var _app_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
-/* harmony import */ var _app_resize__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(6);
-/* harmony import */ var _app_run__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7);
-/* harmony import */ var _components_typewriter__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(8);
-/* harmony import */ var _app_save__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(9);
+/* harmony import */ var _app_run__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var _app_settings__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
+/* harmony import */ var _app_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
+/* harmony import */ var _methods_breakpoint__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
+/* harmony import */ var _components_render__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(6);
+/* harmony import */ var _components_border__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7);
+/* harmony import */ var _methods_resize__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(8);
+/* harmony import */ var _components_typewriter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(9);
 const FRAMEWORK = {};
+
 
 
 
@@ -301,17 +313,22 @@ const FRAMEWORK = {};
 
 ((window, APP) => {
   APP.components = {
-    breakpoint: _components_breakpoint__WEBPACK_IMPORTED_MODULE_1__["default"],
-    render: _components_render__WEBPACK_IMPORTED_MODULE_2__["default"],
-    border: _components_border__WEBPACK_IMPORTED_MODULE_3__["default"],
-    typewriter: _components_typewriter__WEBPACK_IMPORTED_MODULE_7__["default"],
+    breakpoint: _methods_breakpoint__WEBPACK_IMPORTED_MODULE_4__["default"],
+    render: _components_render__WEBPACK_IMPORTED_MODULE_5__["default"],
+    border: _components_border__WEBPACK_IMPORTED_MODULE_6__["default"],
+    typewriter: _components_typewriter__WEBPACK_IMPORTED_MODULE_8__["default"],
   };
 
   APP.start = {
-    components: _app_components__WEBPACK_IMPORTED_MODULE_4__["default"],
-    resize: _app_resize__WEBPACK_IMPORTED_MODULE_5__["default"],
-    run: _app_run__WEBPACK_IMPORTED_MODULE_6__["default"],
-    save: _app_save__WEBPACK_IMPORTED_MODULE_8__["default"],
+    components: _app_components__WEBPACK_IMPORTED_MODULE_3__["default"],
+    run: _app_run__WEBPACK_IMPORTED_MODULE_1__["default"],
+    settings: _app_settings__WEBPACK_IMPORTED_MODULE_2__["default"],
+  };
+
+  APP.methods = {
+    resize: _methods_resize__WEBPACK_IMPORTED_MODULE_7__["default"],
+    breakpoint: _methods_breakpoint__WEBPACK_IMPORTED_MODULE_4__["default"],
+    resize: _methods_resize__WEBPACK_IMPORTED_MODULE_7__["default"],
   };
 
   APP.data = _data_data__WEBPACK_IMPORTED_MODULE_0__;

@@ -1,36 +1,25 @@
-export default class Settings {
+export default class {
   constructor(APP) {
-    this.APP = APP;
-    this.saveFunctions = this.APP.start.save(this.APP);
-    this.data = this.APP.data;
-    this.load = this.saveFunctions.load;
-    this.save = this.saveFunctions.save;
-    this.settingsKey = "settings";
-    this.settings = this.load(this.settingsKey);
+    this.data = APP.data;
   }
 
-  saveSettings() {
-    this.save(this.settingsKey, this.settings);
-  }
-
-  loadSettings() {
-    this.settings = this.load(this.settingsKey);
-    if (this.settings) {
-      this.data.settings = this.settings;
+  retrieve() {
+    if (localStorage.getItem("settings")) {
+      let preferences = JSON.parse(localStorage.getItem("settings"));
+      console.log(preferences);
+      return preferences;
     } else {
-      this.settings = this.data.settings;
-      this.saveSettings();
+      this.store(this.data.settings);
+      console.log("No settings found. Using default settings.");
+      return this.data.settings;
     }
-
-    return this.settings;
   }
 
-  updateSettings(settings) {
-    this.settings = settings;
-    this.saveSettings();
+  store(data) {
+    localStorage.setItem("settings", JSON.stringify(data));
   }
 
   init() {
-    this.loadSettings();
+    this.retrieve();
   }
 }

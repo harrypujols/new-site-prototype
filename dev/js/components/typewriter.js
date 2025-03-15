@@ -6,11 +6,6 @@ export default class {
     this.typing = false;
   }
 
-  init() {
-    this.element.textContent = "";
-    this.type();
-  }
-
   type() {
     if (this.index < this.text.length) {
       this.typing = true;
@@ -20,5 +15,10 @@ export default class {
     } else {
       this.typing = false;
     }
+  }
+
+  init() {
+    this.element.textContent = "";
+    this.type();
   }
 }

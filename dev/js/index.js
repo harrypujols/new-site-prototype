@@ -2,15 +2,16 @@ const FRAMEWORK = {};
 
 import data from "./data/data";
 
-import breakpoint from "./components/breakpoint";
+import run from "./app/run";
+import settings from "./app/settings";
+import components from "./app/components";
+
+import breakpoint from "./methods/breakpoint";
 import render from "./components/render";
 import border from "./components/border";
 
-import components from "./app/components";
-import resize from "./app/resize";
-import run from "./app/run";
+import resize from "./methods/resize";
 import typewriter from "./components/typewriter";
-import save from "./app/save";
 
 ((window, APP) => {
   APP.components = {
@@ -22,9 +23,14 @@ import save from "./app/save";
 
   APP.start = {
     components,
-    resize,
     run,
-    save,
+    settings,
+  };
+
+  APP.methods = {
+    resize,
+    breakpoint,
+    resize,
   };
 
   APP.data = data;

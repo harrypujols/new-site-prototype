@@ -3,7 +3,7 @@ export default class {
     this.element = element;
     this.width = this.element.offsetWidth;
     this.height = this.element.offsetHeight;
-    this.resize = APP.start.resize;
+    this.resize = APP.methods.resize;
     this.character = this.element.getAttribute("data-character") || "*";
   }
 
