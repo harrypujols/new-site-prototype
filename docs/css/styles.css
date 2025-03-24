@@ -87,10 +87,11 @@ h2 {
 [data-js=vborder]::before,
 [data-js=vborder]::after {
   content: var(--vborder-content);
+  font-family: var(--font-family-mono);
   writing-mode: vertical-rl;
   text-orientation: upright;
-  letter-spacing: -0.2rem;
-  font-size: 1rem;
+  letter-spacing: -0.35rem;
+  font-size: 1.565rem;
   display: block;
   position: absolute;
   top: 0;
