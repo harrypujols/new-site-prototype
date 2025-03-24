@@ -34,3 +34,30 @@ h2 {
   text-transform: capitalize;
   text-wrap: balance;
 }
+
+[data-js="vborder"] {
+  --vborder-content: attr(data-content);
+  position: relative;
+  padding-inline: 2.4rem;
+}
+
+[data-js="vborder"]::before,
+[data-js="vborder"]::after {
+  content: var(--vborder-content);
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: -0.2rem;
+  font-size: 1rem;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+[data-js="vborder"]::before {
+  left: 0;
+}
+
+[data-js="vborder"]::after {
+  right: 0;
+}

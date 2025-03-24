@@ -9,6 +9,7 @@ import components from "./app/components";
 import breakpoint from "./methods/breakpoint";
 import render from "./components/render";
 import border from "./components/border";
+import vborder from "./components/vborder";
 
 import resize from "./methods/resize";
 import typewriter from "./components/typewriter";
@@ -19,6 +20,7 @@ import typewriter from "./components/typewriter";
     render,
     border,
     typewriter,
+    vborder,
   };
 
   APP.start = {

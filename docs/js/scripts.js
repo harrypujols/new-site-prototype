@@ -175,6 +175,50 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (class {
+  constructor(element, APP) {
+    this.element = element;
+    this.height = this.element.offsetHeight;
+    this.resize = APP.methods.resize;
+    this.character = this.element.getAttribute("data-character") || "*";
+  }
+
+  init() {
+    this.updateCharacter();
+
+    this.resize(() => {
+      this.height = this.element.offsetHeight;
+      this.updateCharacter();
+    }, 66);
+  }
+
+  updateCharacter() {
+    const characterCount = Math.floor(this.height / this.characterHeight());
+    const repeatedCharacters = this.character.repeat(characterCount);
+    this.element.setAttribute("data-content", repeatedCharacters);
+  }
+
+  characterHeight() {
+    const span = document.createElement("span");
+    span.style.fontFamily = "monospace";
+    span.style.visibility = "hidden";
+    span.textContent = this.character;
+    document.body.appendChild(span);
+    const characterHeight = span.offsetHeight;
+    document.body.removeChild(span);
+    return characterHeight;
+  }
+});
+
+
+/***/ }),
+/* 9 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((callback, delay = 66) => {
   var isResizing;
 
@@ -193,7 +237,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -294,9 +338,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _methods_breakpoint__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
 /* harmony import */ var _components_render__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(6);
 /* harmony import */ var _components_border__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7);
-/* harmony import */ var _methods_resize__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(8);
-/* harmony import */ var _components_typewriter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(9);
+/* harmony import */ var _components_vborder__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(8);
+/* harmony import */ var _methods_resize__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(9);
+/* harmony import */ var _components_typewriter__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(10);
 const FRAMEWORK = {};
+
 
 
 
@@ -316,7 +362,8 @@ const FRAMEWORK = {};
     breakpoint: _methods_breakpoint__WEBPACK_IMPORTED_MODULE_4__["default"],
     render: _components_render__WEBPACK_IMPORTED_MODULE_5__["default"],
     border: _components_border__WEBPACK_IMPORTED_MODULE_6__["default"],
-    typewriter: _components_typewriter__WEBPACK_IMPORTED_MODULE_8__["default"],
+    typewriter: _components_typewriter__WEBPACK_IMPORTED_MODULE_9__["default"],
+    vborder: _components_vborder__WEBPACK_IMPORTED_MODULE_7__["default"],
   };
 
   APP.start = {
@@ -326,9 +373,9 @@ const FRAMEWORK = {};
   };
 
   APP.methods = {
-    resize: _methods_resize__WEBPACK_IMPORTED_MODULE_7__["default"],
+    resize: _methods_resize__WEBPACK_IMPORTED_MODULE_8__["default"],
     breakpoint: _methods_breakpoint__WEBPACK_IMPORTED_MODULE_4__["default"],
-    resize: _methods_resize__WEBPACK_IMPORTED_MODULE_7__["default"],
+    resize: _methods_resize__WEBPACK_IMPORTED_MODULE_8__["default"],
   };
 
   APP.data = _data_data__WEBPACK_IMPORTED_MODULE_0__;
