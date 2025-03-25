@@ -114,4 +114,51 @@ h2 {
   margin-block: 0;
 }
 
+[data-js=box] {
+  position: relative;
+  padding-inline: 2.4rem;
+}
+
+[data-js=box]::before,
+[data-js=box]::after {
+  content: attr(data-content-height);
+  font-family: var(--font-family-mono);
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: -0.35rem;
+  font-size: 1.565rem;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+[data-js=box]::before {
+  left: 0;
+}
+
+[data-js=box]::after {
+  right: 0;
+}
+
+[data-js=box]::before,
+[data-js=box]::after {
+  content: attr(data-content-width);
+  font-family: var(--font-family-mono);
+  letter-spacing: -0.35rem;
+  font-size: 1.565rem;
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+[data-js=box]::before {
+  top: 0;
+}
+
+[data-js=box]::after {
+  bottom: 0;
+}
+
 @layer vendor, core;
